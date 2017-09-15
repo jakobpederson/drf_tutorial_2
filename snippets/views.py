@@ -24,7 +24,7 @@ def snippet_list(request):
         if serializer.is_valid():
             serializer.save()
             return JsonResponse(serializer.data, status=201)
-        return JsonResponse(serializer.errors, status 400)
+        return JsonResponse(serializer.errors, status=400)
 
 # Note that because we want to be able to POST to this view from clients that won't have a CSRF token we need to mark
 # the view as csrf_exempt. This isn't something that you'd normally want to do, and REST framework views actually use
@@ -48,4 +48,4 @@ def snippet_detail(request, pk):
         if serializer.is_valid():
             serializer.save()
             return JsonResponse(serializer.data)
-        return JsonResponse(Serializer.errors, status=400)
+        return JsonResponse(serializer.errors, status=400)
